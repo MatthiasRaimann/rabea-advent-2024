@@ -35,7 +35,7 @@ export function DayComponent({ day, isLocked }: { day: Day, isLocked: boolean })
 
     function tryTurn() {
         if (isTurned === true) return turn(false)
-        turn(true)
-        // return isLocked ? 0 : turn(true)
+        // turn(true)
+        return isLocked ? 0 : turn(true)
     }
 }
