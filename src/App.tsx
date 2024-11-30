@@ -28,7 +28,10 @@ function App() {
         {
           shuffleArray(Object.entries(days)
             .map(([key, value]) => new Day(key, value.image, value.message, value.href)))
-            .map(d => <DayComponent key={d.day} day={d} isLocked={Date.now() < d.date.getTime()} />)
+            .map((d, i) => {
+              (d.day === '2024-12-01') && console.log(Date.now(), d.date.getTime())
+              return <DayComponent key={d.day} day={d} isLocked={new Date().getDate() < d.date.getDate()} />
+            })
         }
       </div>
 

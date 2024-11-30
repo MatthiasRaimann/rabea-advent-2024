@@ -1,4 +1,3 @@
-import { z } from "zod"
 
 class Day {
     readonly date: Date
@@ -9,7 +8,8 @@ class Day {
         readonly message: string,
         readonly href: string | null
     ) {
-        this.date = z.coerce.date().parse(day)
+        const [year, month, date] = day.split('-').map(s => +s)
+        this.date = new Date(year, month - 1, date)
     }
 }
 
